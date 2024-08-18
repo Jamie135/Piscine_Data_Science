@@ -21,10 +21,10 @@ def main():
         print("Query executed successfully")
         cursor.close()
         connection.close()
-    except AssertionError as a:
-        print(f"AssertionError: {a}")
-    except OperationalError as e:
-        print(f"OperationalError: {e}")
+    except OperationalError as o:
+        print(f"OperationalError: {o}")
+    except Exception as e:
+        print(f"AssertionError: {e}")
 
 
 if __name__ == "__main__":
