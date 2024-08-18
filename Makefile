@@ -25,14 +25,14 @@ stop:
 start: 
 	docker start $$(docker ps -aq)
 
-clean:
+clean: stop
 	docker-compose -f $(DOCKER_COMPOSE) down --remove-orphans
 	docker images prune
 
 fclean:	clean
 	docker volume rm $$(docker volume ls -q)
 	docker rmi $$(docker images -aq)
-	docker system prune -a
+	docker system prune --all --volumes --force
 
 re:	fclean all
 
