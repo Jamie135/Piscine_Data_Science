@@ -22,6 +22,9 @@ def main():
             user_session UUID
             )
         """
+        # allow each executed SQL query to not be rolled back
+        # when closing the connection 
+        connection.autocommit = True
         # open a cursor to perform database operations
         cursor = connection.cursor()
         cursor.execute(query)
