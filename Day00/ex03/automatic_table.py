@@ -24,7 +24,7 @@ def main():
     except OperationalError as o:
         print(f"OperationalError: {o}")
     except Exception as e:
-        print(f"AssertionError: {e}")
+        print(f"Error: {e}")
 
 
 if __name__ == "__main__":
