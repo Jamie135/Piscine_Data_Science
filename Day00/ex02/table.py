@@ -12,25 +12,21 @@ def main():
             host="localhost",
             port="5432",
         )
-        query = """
-            CREATE TABLE IF NOT EXISTS data_2022_oct (
-            event_time TIMESTAMPTZ,
-            event_type VARCHAR,
-            product_id INTEGER,
-            price FLOAT,
-            user_id BIGINT,
-            user_session UUID
-            )
-        """
+        print("Connected to PostgreSQL Database")
+        with open("table.sql", "r") as sql:
+            query = sql.read()
         # allow each executed SQL query to not be rolled back
         # when closing the connection 
         connection.autocommit = True
         # open a cursor to perform database operations
         cursor = connection.cursor()
         cursor.execute(query)
+        print("Query executed successfully")
         cursor.close()
         connection.close()
-    except OperationalError as e:
+    except OperationalError as o:
+        print(f"Error: {o}")
+    except Exception as e:
         print(f"Error: {e}")
 
 
