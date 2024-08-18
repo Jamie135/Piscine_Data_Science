@@ -18,6 +18,7 @@ def main():
         connection.autocommit = True
         cursor = connection.cursor()
         cursor.execute(query)
+        print("Query executed successfully")
         cursor.close()
         connection.close()
     except AssertionError as a:
