@@ -4,7 +4,7 @@ Since postgres is not available on 42's pc, we'll use docker-compose to run two 
 
 ## Set Up
 
-Run docker-compose:
+- Run docker-compose:
 ```bash
 make all
 ```
@@ -15,12 +15,12 @@ make all
 docker inspect <postgres container id>
 ```
 
-Run a script to copy all csv data files from the local machine to the /tmp directory in postgres container:  
+- Run a script to copy all csv data files from the local machine to the /tmp directory in postgres container:  
 ```bash
 ./copy.sh
 ```
 
-If you never have psycopg2 installed:
+- If you never have psycopg2 installed:
 ```bash
 pip3 install psycopg2-binary
 ```
