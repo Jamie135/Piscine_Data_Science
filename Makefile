@@ -2,11 +2,9 @@ DOCKER_COMPOSE = docker-compose.yaml
 
 all : build run
 
-# construction des images
 build:
 	docker-compose -f $(DOCKER_COMPOSE) build
 
-# création des containers
 run:
 	docker-compose -f $(DOCKER_COMPOSE) up
 
