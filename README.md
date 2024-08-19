@@ -12,12 +12,12 @@ make all
 - Go to localhost:5050, login and initialize a server for postgres user pbureera
 
 
-- Run a script to copy all csv data files from the local machine to the /tmp directory in postgres container:  
+- Run a shell script to copy all csv data files from the local machine to the /tmp directory in postgres container:  
 ```bash
 ./copy.sh
 ```
 
-- If you never have psycopg2 installed:
+- If you never have psycopg2 installed, run this command:
 ```bash
 pip3 install psycopg2-binary
 ```
