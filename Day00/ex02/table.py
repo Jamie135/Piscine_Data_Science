@@ -3,7 +3,7 @@ from psycopg2 import OperationalError
 
 
 def main():
-    """create a table"""
+    """create a table for data_2022_oct.csv files"""
     try:
         connection = psycopg2.connect(
             database="piscineds",
