@@ -10,10 +10,7 @@ make all
 ```
 
 - Go to localhost:5050, login and initialize a server for postgres user pbureera
-- To obtain the right address, you can use this command, then look for the IP adress in "NetworkSettings": { "Networks": { "IPAddress": "..." } }:
-```bash
-docker inspect <postgres container id>
-```
+
 
 - Run a script to copy all csv data files from the local machine to the /tmp directory in postgres container:  
 ```bash
@@ -30,6 +27,11 @@ pip3 install psycopg2-binary
 Connect to postgres database:
 ```bash
 docker exec -it postgres psql -U pbureera -d piscineds -h localhost -W
+```
+
+Inspect a container (to get the IP address):
+```bash
+docker inspect <postgres container id>
 ```
 
 List all running containers:
