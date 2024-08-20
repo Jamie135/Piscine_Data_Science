@@ -30,6 +30,15 @@ def main():
                 COPY {table} FROM '/tmp/{table}.csv' CSV HEADER;
                 """
             cursor.execute(create)
+        items = """CREATE TABLE IF NOT EXISTS items (
+            product_id INT,
+            category_id BIGINT,
+            category_code VARCHAR(255),
+            brand VARCHAR(255)
+            );
+            COPY items FROM '/tmp/item.csv' CSV HEADER;
+            """
+        cursor.execute(items)
         print("Query executed successfully")
         cursor.close()
         connection.close()

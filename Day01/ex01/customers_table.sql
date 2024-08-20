@@ -16,6 +16,8 @@ INSERT INTO customers (event_time, event_type, product_id, price, user_id, user_
     SELECT * FROM data_2022_dec
     UNION ALL
     SELECT * FROM data_2023_jan
+    UNION ALL
+    SELECT * FROM data_2023_feb
 );
 
 -- SELECT * FROM customers
