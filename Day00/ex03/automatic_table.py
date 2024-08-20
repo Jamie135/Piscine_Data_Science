@@ -1,3 +1,4 @@
+import os
 import psycopg2
 from psycopg2 import OperationalError
 
@@ -13,11 +14,22 @@ def main():
             port="5432",
         )
         print("Connected to PostgreSQL Database")
-        with open("automatic_table.sql", "r") as sql:
-            query = sql.read()
+        csvpath = "/mnt/nfs/homes/pbureera/sgoinfre/eval/customer/"
         connection.autocommit = True
         cursor = connection.cursor()
-        cursor.execute(query)
+        for file in os.listdir(csvpath):
+            table = os.path.splitext(file)[0]
+            create = f"""CREATE TABLE IF NOT EXISTS {table} (
+                event_time TIMESTAMP,
+                event_type VARCHAR(255),
+                product_id INT,
+                price FLOAT,
+                user_id BIGINT,
+                user_session UUID
+                );
+                COPY {table} FROM '/tmp/{table}.csv' CSV HEADER;
+                """
+            cursor.execute(create)
         print("Query executed successfully")
         cursor.close()
         connection.close()
