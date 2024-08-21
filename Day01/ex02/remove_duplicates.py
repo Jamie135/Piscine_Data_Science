@@ -1,9 +1,8 @@
 import psycopg2
-from psycopg2 import OperationalError
 
 
 def main():
-    """create a table"""
+    """remove duplicates from customers table"""
     try:
         connection = psycopg2.connect(
             database="piscineds",
@@ -21,8 +20,6 @@ def main():
         print("Query executed successfully")
         cursor.close()
         connection.close()
-    except OperationalError as o:
-        print(f"OperationalError: {o}")
     except Exception as e:
         print(f"Error: {e}")
 

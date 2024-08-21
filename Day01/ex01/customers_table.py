@@ -41,7 +41,27 @@ def main():
             subprocess.run(
                 ["docker", "exec", "postgres", "rm", f"/tmp/{file}"]
                 )
-        print("Query executed successfully")
+        print("Query executed successfully: customers table created")
+        path = "/mnt/nfs/homes/pbureera/sgoinfre/subject/item/"
+        connection.autocommit = True
+        cursor = connection.cursor()
+        file_path = os.path.join(path, "item.csv")
+        subprocess.run(
+            ["docker", "cp", file_path, "postgres:/tmp/item.csv"]
+            )
+        create = """CREATE TABLE IF NOT EXISTS items (
+            product_id INT,
+            category_id BIGINT,
+            category_code VARCHAR(255),
+            brand VARCHAR(255)
+            );
+            COPY items FROM '/tmp/item.csv' CSV HEADER;
+            """
+        cursor.execute(create)
+        subprocess.run(
+            ["docker", "exec", "postgres", "rm", "/tmp/item.csv"]
+            )
+        print("Query executed successfully: items table created")
         cursor.close()
         connection.close()
     except Exception as e:

@@ -3,7 +3,7 @@ from psycopg2 import OperationalError
 
 
 def main():
-    """create a table"""
+    """join items table to customers"""
     try:
         connection = psycopg2.connect(
             database="piscineds",
