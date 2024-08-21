@@ -16,7 +16,7 @@ def main():
         )
         print("Connected to PostgreSQL Database")
         # path = os.path.expanduser("~/Documents/42/Data/subject/customer")
-        path = "/mnt/nfs/homes/pbureera/sgoinfre/eval/customer/"
+        path = "/mnt/nfs/homes/pbureera/sgoinfre/subject/customer/"
         connection.autocommit = True
         cursor = connection.cursor()
         for file in os.listdir(path):
