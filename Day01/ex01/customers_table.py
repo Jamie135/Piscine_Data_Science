@@ -42,10 +42,7 @@ def main():
                 ["docker", "exec", "postgres", "rm", f"/tmp/{file}"]
                 )
         print("Query executed successfully: customers table created")
-        path = "/mnt/nfs/homes/pbureera/sgoinfre/subject/item/"
-        connection.autocommit = True
-        cursor = connection.cursor()
-        file_path = os.path.join(path, "item.csv")
+        file_path = "/mnt/nfs/homes/pbureera/sgoinfre/subject/item/item.csv"
         subprocess.run(
             ["docker", "cp", file_path, "postgres:/tmp/item.csv"]
             )
