@@ -38,6 +38,7 @@ def main():
                 COPY customers({columns}) FROM '/tmp/{file}' CSV HEADER;
                 """
             cursor.execute(create)
+            connection.commit()
             subprocess.run(
                 ["docker", "exec", "postgres", "rm", f"/tmp/{file}"]
                 )
@@ -55,6 +56,7 @@ def main():
             COPY items FROM '/tmp/item.csv' CSV HEADER;
             """
         cursor.execute(create)
+        connection.commit()
         subprocess.run(
             ["docker", "exec", "postgres", "rm", "/tmp/item.csv"]
             )
