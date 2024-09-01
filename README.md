@@ -9,13 +9,20 @@ Since postgres is not available on 42's pc, we'll use docker-compose to run two 
 make all
 ```
 
-- Go to localhost:5050, login and initialize a server for postgres user pbureera
-
-
-- If you never have psycopg2 installed, run this command:
-```bash
-pip3 install psycopg2-binary
+- Go to:
 ```
+localhost:5050
+```
+
+- Sign in with:
+|          user          |     password     |
+|------------------------|------------------|
+| pbureera@student.42.fr | mysecretpassword |
+
+- Register a database server with:
+|  database name  |     password     |
+|-----------------|------------------|
+|    postgres     | mysecretpassword |
 
 ## Useful Commands
 
@@ -24,9 +31,9 @@ Connect to postgres database:
 docker exec -it postgres psql -U pbureera -d piscineds -h localhost -W
 ```
 
-Inspect a container (to get the IP address):
+Inspect a container:
 ```bash
-docker inspect <postgres container id>
+docker inspect <container's name'>
 ```
 
 List all running containers:
