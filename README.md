@@ -35,7 +35,7 @@ docker exec -it postgres psql -U pbureera -d piscineds -h localhost -W
 
 Inspect a container:
 ```bash
-docker inspect <container's name>
+docker inspect <container_name>
 ```
 
 List all running containers:
