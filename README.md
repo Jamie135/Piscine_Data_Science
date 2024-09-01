@@ -16,15 +16,15 @@ localhost:5050
 
 - Sign in with:
 
-| user                   | password         |
+| User                   | Password         |
 |------------------------|------------------|
 | pbureera@student.42.fr | mysecretpassword |
 
 - Register a database server with:
 
-| database name   | password         |
-|-----------------|------------------|
-|    postgres     | mysecretpassword |
+| Database Name | Password         |
+|---------------|------------------|
+| postgres      | mysecretpassword |
 
 ## Useful Commands
 
@@ -35,7 +35,7 @@ docker exec -it postgres psql -U pbureera -d piscineds -h localhost -W
 
 Inspect a container:
 ```bash
-docker inspect <container's name'>
+docker inspect <container's name>
 ```
 
 List all running containers:
