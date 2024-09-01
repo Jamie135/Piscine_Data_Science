@@ -15,11 +15,13 @@ localhost:5050
 ```
 
 - Sign in with:
+
 | user                   | password         |
 |------------------------|------------------|
 | pbureera@student.42.fr | mysecretpassword |
 
 - Register a database server with:
+
 | database name   | password         |
 |-----------------|------------------|
 |    postgres     | mysecretpassword |
