@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 
 def main():
-    """remove duplicates from customers table"""
+    """plot a pie chart for event type"""
     try:
         connection = psycopg2.connect(
             database="piscineds",
