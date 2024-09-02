@@ -20,11 +20,11 @@ localhost:5050
 |------------------------|------------------|
 | pbureera@student.42.fr | mysecretpassword |
 
-- Register a database server with:
+- Register a database connection with:
 
-| Database Name | Password         |
-|---------------|------------------|
-| postgres      | mysecretpassword |
+| Host Name | Password         |
+|-----------|------------------|
+| postgres  | mysecretpassword |
 
 ## Useful Commands
 
