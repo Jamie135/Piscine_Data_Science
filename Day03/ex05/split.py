@@ -15,9 +15,8 @@ def main():
         print(f"File {input_file} not found.")
         sys.exit(1)
 
-    validation_ratio = 0.2 # 0.8 for training ratio
-
-    train_df, validation_df = train_test_split(df, test_size=validation_ratio, random_state=42)
+    # test_size=0.2 means we want to separate 20% of the datasets for Validation 
+    train_df, validation_df = train_test_split(df, test_size=0.2, random_state=42)
     train_df.to_csv('Training_knight.csv', index=False)
     validation_df.to_csv('Validation_knight.csv', index=False)
 
