@@ -1,11 +1,10 @@
 import sys
 import os
 import pandas as pd
-from sklearn.tree import DecisionTreeClassifier
+import matplotlib.pyplot as plt
+from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, f1_score
-from sklearn import tree
-import matplotlib.pyplot as plt
 
 
 def load_file(path: str):
@@ -38,13 +37,13 @@ def main():
         x, y, test_size=0.2, random_state=42
     )
 
-    model = DecisionTreeClassifier(random_state=13)
+    model = DecisionTreeClassifier(random_state=42)
     model.fit(x_train, y_train)
     predicted_val = model.predict(x_val)
     accuracy = accuracy_score(predicted_val, y_val)
     print(f"accuracy: {accuracy}")
     print(
-        f"f1_score: {round(f1_score(y_val, predicted_val, average='macro'), 4)}"
+        f"f1_score: {f1_score(y_val, predicted_val, average='macro')}"
     )
 
     predicted_test = model.predict(df_test)
@@ -53,7 +52,7 @@ def main():
             output.write(item + "\n")
 
     plt.figure(figsize=(10, 7))
-    tree.plot_tree(
+    plot_tree(
         model,
         feature_names=df_test.columns,
         class_names=["Jedi", "Sith"],
