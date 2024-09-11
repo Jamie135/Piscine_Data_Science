@@ -83,7 +83,7 @@ def main():
     #     f"F1_score: {f1_score(y_valid, y_pred, average='macro')}"
     # )
 
-    x = df_test.drop(
+    x_test = df_test.drop(
         columns=[
             "Prescience",
             "Push",
@@ -108,7 +108,7 @@ def main():
             "Agility",
         ]
     )
-    df_test = pd.DataFrame(scaler.fit_transform(x), columns=x.columns)
+    df_test = pd.DataFrame(scaler.fit_transform(x_test), columns=x_test.columns)
     predicted_test = model.predict(df_test)
     with open("KNN.txt", "w") as output:
         for item in predicted_test:
