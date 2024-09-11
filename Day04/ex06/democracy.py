@@ -54,7 +54,7 @@ def main():
     accuracy = accuracy_score(y_valid, predicted_val)
     print(f"Accuracy: {accuracy}")
     print(
-        f"F1_score: {round(f1_score(y_valid, predicted_val, average='macro'), 4)}"
+        f"F1_score: {f1_score(y_valid, predicted_val, average='macro')}"
     )
 
     df_test = pd.DataFrame(scaler.fit_transform(df_test), columns=df_test.columns)
