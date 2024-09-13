@@ -8,7 +8,7 @@ from sklearn.metrics import accuracy_score, f1_score
 
 
 def load_file(path: str):
-    """load a data file using pandas library"""
+    """load a data file"""
 
     try:
         assert isinstance(path, str), "your path is not valid."

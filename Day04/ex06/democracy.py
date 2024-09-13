@@ -11,7 +11,7 @@ from sklearn.preprocessing import StandardScaler
 
 
 def load(path: str):
-    """load a data file using pandas library"""
+    """load a data"""
     try:
         assert isinstance(path, str), "your path is not valid."
         assert os.path.exists(path), "your file doesn't exist."

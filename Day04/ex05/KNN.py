@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 
 def load(path: str):
-    """load a data file using pandas library"""
+    """load a data file"""
     try:
         assert isinstance(path, str), "your path is not valid."
         assert os.path.exists(path), "your file doesn't exist."
@@ -34,29 +34,9 @@ def main():
     x = df_train.drop(
         columns=[
             "knight",
-            "Prescience",
-            "Push",
-            "Deflection",
-            "Survival",
-            "Midi-chlorien",
-            "Grasping",
-            "Pull",
-            "Awareness",
-            "Repulse",
-            "Attunement",
-            "Empowered",
-            "Dexterity",
-            "Delay",
-            "Slash",
-            "Sprint",
-            "Sensitivity",
-            "Stims",
-            "Strength",
-            "Recovery",
-            "Hability",
-            "Agility",
         ]
     )
+    # Standardize features from Train_knight.csv
     scaler = StandardScaler()
     x = pd.DataFrame(scaler.fit_transform(x), columns=x.columns)
     y = df_train["knight"]
@@ -74,41 +54,9 @@ def main():
         f1 = f1_score(y_valid, y_pred, average='macro')
         accuracies.append(accuracy_score(y_valid, y_pred))
         print(f"k={k}: Accuracy={accuracy:.2f}, Precision={precision:.2f}, f1_score={f1:.2f}")
-    # model = KNeighborsClassifier(n_neighbors=10)
-    # model.fit(x_train, y_train)
-    # y_pred = model.predict(x_valid)
-    # accuracy = accuracy_score(y_valid, y_pred)
-    # print(f"Accuracy: {accuracy}")
-    # print(
-    #     f"F1_score: {f1_score(y_valid, y_pred, average='macro')}"
-    # )
 
-    x_test = df_test.drop(
-        columns=[
-            "Prescience",
-            "Push",
-            "Deflection",
-            "Survival",
-            "Midi-chlorien",
-            "Grasping",
-            "Pull",
-            "Awareness",
-            "Repulse",
-            "Attunement",
-            "Empowered",
-            "Dexterity",
-            "Delay",
-            "Slash",
-            "Sprint",
-            "Sensitivity",
-            "Stims",
-            "Strength",
-            "Recovery",
-            "Hability",
-            "Agility",
-        ]
-    )
-    df_test = pd.DataFrame(scaler.fit_transform(x_test), columns=x_test.columns)
+    # Standardize features from Test_knight.csv
+    df_test = pd.DataFrame(scaler.fit_transform(df_test), columns=df_test.columns)
     predicted_test = model.predict(df_test)
     with open("KNN.txt", "w") as output:
         for item in predicted_test:
@@ -117,7 +65,7 @@ def main():
     plt.plot(accuracies)
     plt.xlabel("k values")
     plt.ylabel("accuracy")
-    plt.yticks([i/1000 for i in range(920, 985, 5)])
+    plt.yticks([i/1000 for i in range(950, 1005, 5)])
     plt.show()
 
 
